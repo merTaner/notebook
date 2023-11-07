@@ -11,8 +11,6 @@ class Complex(object):
     def __sub__(self, no):
         return Complex(self.real - no.real, self.imaginary - no.imaginary)
     
-    # if you want multiplication one complex number (a + ib) 
-    # you should multiplication with conjugate (a - ib)
     def __mul__(self, no):
         r = self.real * no.real - self.imaginary * no.imaginary
         i = self.real * no.imaginary + self.imaginary * no.real
@@ -20,14 +18,16 @@ class Complex(object):
         return Complex(r, i)
     
     def __truediv__(self, no):
-        denominator = no.real**2 + no.imaginary ** 2
-        real_part = (self.real * no.real + self.imaginary * no.imaginary) / denominator
-        imag_part = (self.imaginary * no.real - self.real * no.imaginary) / denominator
+        denomitor = no.real ** 2 + no.imaginary ** 2
+        r = self.real * no.real + self.imaginary * no.imaginary 
+        i = self.imaginary * no.real - self.real * no.imaginary
 
-        return Complex(real_part, imag_part)
-    
+        return Complex(r/denomitor, i/denomitor)
+
     def mod(self):
-        return round(math.sqrt(self.real ** 2 + self.imaginary ** 2), 2)
+        mod = round(math.sqrt(self.real ** 2 + self.imaginary ** 2), 2)
+        
+        return Complex(mod, 0)
 
     def __str__(self):
         if self.imaginary == 0:
