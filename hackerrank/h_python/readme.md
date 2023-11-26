@@ -10,3 +10,9 @@ __sub__ -> Can be overloaded for - operation
 
 * “Dunder Method” (Double Underscore Method” (also called “magic method”))
 we should use 'return Points()' statement because __sub__ function calculates subtraction from two points object and return it.
+
+*Power of Lambda Function
+`
+for list_items in sorted(arr, key=lambda x: x[k]):
+    print(*list_items)
+`
