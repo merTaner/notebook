@@ -27,3 +27,8 @@ Namespaces are one honking great idea -- let's do more of those!
 * Code analyz package : line_profiler
 * For memory analyz : memory_profiler
 
+### Basic pandas optimizations
+
+- iterrows method have more perform than iloc method.
+- itertuples method have more perform than iterrows method. (itertuples > iterrows > iloc)
+
