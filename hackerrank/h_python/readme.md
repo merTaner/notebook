@@ -16,3 +16,8 @@ we should use 'return Points()' statement because __sub__ function calculates su
 for list_items in sorted(arr, key=lambda x: x[k]):
     print(*list_items)
 `
+
+#### Regex
++ --> 1 or more occurrences of the pattern to its left e.x : "^[789]\d{9}+$"
+* --> 0 or more occurrences of the pattern to its left
+? --> match 0 or 1 occurrences of the pattern to its left
