@@ -18,6 +18,15 @@ for list_items in sorted(arr, key=lambda x: x[k]):
 `
 
 #### Regex
+
 + --> 1 or more occurrences of the pattern to its left e.x : "^[789]\d{9}+$"
 * --> 0 or more occurrences of the pattern to its left
 ? --> match 0 or 1 occurrences of the pattern to its left
+
+#### functools
+
+- reduce -> like map func but usually used for math compute.
+
+Also the function do cumulative calculation.
+
+
