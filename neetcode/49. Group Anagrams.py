@@ -1,7 +1,8 @@
 """
 Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
-An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, 
+typically using all the original letters exactly once.
 
  
 
@@ -39,9 +40,7 @@ class Solution:
             dictionary[sorted_string].append(string)   
 
         return list(dictionary.values())    
-        
-    def another_group_anagrams(self, strs):
-        pass   
+
         
 
 if __name__ == '__main__':
@@ -49,3 +48,4 @@ if __name__ == '__main__':
     print(sol.groupAnagrams(strs=["eat","tea","tan","ate","nat","bat"]))
     print(sol.groupAnagrams(strs=[""]))
     print(sol.groupAnagrams(strs=["a"]))
+    print(sol.another_group_anagrams(strs=["eat","tea","tan","ate","nat","bat"]))
