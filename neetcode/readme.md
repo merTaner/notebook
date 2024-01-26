@@ -6,9 +6,11 @@
     - I used fewer variables thanks to enumerate
 
 - 238.Product of Array Except Self
+    - If you multiply every element to the left and to the right, you will get the product of all elements.
+    - 
+    - res = [1] * len(nums) : somecases this method can be faster than empty list.
     -
-    -
-    -
+    - 
 
 - 347.Top K Frequent Elements
     - Never forget power of dictionary!

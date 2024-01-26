@@ -6,7 +6,6 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 
 You must write an algorithm that runs in O(n) time and without using the division operation.
 
- 
 
 Example 1:
 
@@ -30,6 +29,9 @@ Constraints:
 
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
+        """
+            Bad solution because Big O(n^2)
+        """
         product_holder = {}
 
         for idx, value in enumerate(nums):
@@ -40,10 +42,42 @@ class Solution:
             product_numbers.pop(idx)  
             product_holder[value] = product_numbers
 
+        product = 1
+        for key, value in product_holder.items():
+            for number in value:
+                product *= number
+            
+            product_holder[key] = product
+            product = 1
 
-        return product_holder 
+        return list(product_holder.values())
+
+    def product_except_self(self, nums: list[int]) -> list[int]:
+        """This method basically uses the idea of product of
+         all elements to the left and right for every
+          element and when we multiplty the results, we
+         get product of all elements except index'th element"""
+        
+        # better than first solution Big O(n)
+        
+        res = [1] * len(nums)
+
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+        
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
+
+        return res
+
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.productExceptSelf([1,2,3,4]))
-    print(sol.productExceptSelf([-1,1,0,-3,3]))
+    #print(sol.productExceptSelf([1,2,3,4]))
+    #print(sol.productExceptSelf([-1,1,0,-3,3]))
+    print(sol.product_except_self([1,2,3,4]))
+    print(sol.product_except_self([-1,1,0,-3,3]))
