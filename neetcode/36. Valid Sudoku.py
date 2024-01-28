@@ -55,22 +55,40 @@ Look to collections.defualt() method.
 
 use set() for values of repetitions and unique
 
+uses subgrid for sub-boards. 3x3 
+
+example :
+col[7]
+row[5]
+-----------
+squares[(1, 2)]  
 
 """
 from collections import defaultdict
 
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
-        
+        cols = defaultdict(set)
+        rows = defaultdict(set) 
+        # row // 3, col // 3
+        squares = defaultdict(set) 
+
         # control to constraints
         for row in range(9):
             for col in range(9):
                 # [row][col] == '.' is okay no problem
                 if board[row][col] == '.':
                     continue
-
+                if (board[row][col] == rows[row] or 
+                    board[row][col] == cols[col] or 
+                    board[row][col] == squares[(row // 3 , col // 3)]):
+                    return False
+                
+                cols[col].add(board[row][col])
+                rows[row].add(board[row][col])
+                squares[((row // 3 , col // 3))].add(board[row][col])
         
-        return
+        return True
 
 if __name__ == '__main__':
     sol = Solution()
