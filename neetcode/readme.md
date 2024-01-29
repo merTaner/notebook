@@ -33,3 +33,8 @@
     - collections.defualt() : Return a new dictionary-like object. defaultdict is a subclass of the built-in dict class.
     - 
     - 
+
+- 008.Longest Consecutive Sequence
+    - use set() beacuse don't need to repeat numbers
+    - 
+    - current = max(current, number)
