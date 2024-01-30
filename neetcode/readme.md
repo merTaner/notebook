@@ -2,11 +2,13 @@
 
 
 - 001.Contains Duplicate
-    - 
+    - used Counter() method
+    -
     -
 
 - 002.Valid Anagram
-    - 
+    - if you work with dictionary you should know get() item method. 
+    -
     -
 
 - 003.Two Sum
@@ -15,6 +17,7 @@
     - I used fewer variables thanks to enumerate
 
 - 004.Group Anagrams
+    - don't forget to while work with dictionary you use sub-list for each item. 
     -
     -
 
