@@ -3,9 +3,11 @@
 
 - 001.Contains Duplicate
     - 
+    -
 
 - 002.Valid Anagram
     - 
+    -
 
 - 003.Two Sum
     - enumerate is powerfull.
@@ -13,6 +15,7 @@
     - I used fewer variables thanks to enumerate
 
 - 004.Group Anagrams
+    -
     -
 
 - 005.Top K Frequent Elements
@@ -38,3 +41,12 @@
     - use set() beacuse don't need to repeat numbers
     - 
     - current = max(current, number)
+
+- 009.Encode and Decode Strings
+    - use only one charter for sperate strings. This time we have a problem.
+    -
+    - example -> ['mert', 'mert:;taner'] if we have like this list we during encode and decode
+    -
+    - decode is never assing to original list. encode = 'mert:;mert:;taner;;' okay but decoder = ['mert', 'mert', 'taner']
+    -
+    - res += str(len(s)) + '#' + s -> perfect way for sign
