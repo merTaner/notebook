@@ -53,3 +53,10 @@
     - decode is never assing to original list. encode = 'mert:;mert:;taner;;' okay but decoder = ['mert', 'mert', 'taner']
     -
     - res += str(len(s)) + '#' + s -> perfect way for sign
+
+- 010.Valid Palindrome
+    - greate strings methods : str.isalnum(), filter(), lower() ..
+    -
+    - new_str[::] == new_str[:: -1] compare to flat and reverse of the list
+    -
+    - filter(str.isalnum, 'any string')

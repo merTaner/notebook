@@ -33,7 +33,7 @@ use lower() method for lowercase letters
 use regex for remove non-alphanumeric characters.
 
 greate strings method : 
-str.isalnum(), filter()
+str.isalnum(), filter(), lower()
 
 """
 
