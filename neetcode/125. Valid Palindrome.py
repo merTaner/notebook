@@ -37,7 +37,6 @@ str.isalnum(), filter(), lower()
 
 """
 
-import re
 
 class Solution:
     def isPalindrome_first_solution(self, s: str) -> bool:
@@ -55,14 +54,32 @@ class Solution:
 
         return s[::] == s[:: -1]
     
-    def two_pointer_solution():
-        pass
+    def isPalindrome(self, s: str) -> bool:
+        l, r = 0, len(s) - 1
+
+        while l < r:
+            while l < r and not self.alphaNum(s[l]):
+                l += 1
+            while r > l and not self.alphaNum(s[r]):
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+            l, r = l + 1, r - 1
+        return True
+
+    def alphaNum(self, c):
+        return (ord('A') <= ord(c) <= ord('Z') or 
+                ord('a') <= ord(c) <= ord('z') or
+                ord('0') <= ord(c) <= ord('9'))
+
+
 
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.second_solution_palindrome("A man, a plan, a canal: Panama"))
+    #print(sol.second_solution_palindrome("A man, a plan, a canal: Panama"))
     #print(sol.isPalindrome_first_solution("race a car"))
     #print(sol.isPalindrome_first_solution(" "))
     #print(sol.isPalindrome_first_solution("ab_a"))
-    print(sol.second_solution_palindrome("ab_a"))
+    #print(sol.second_solution_palindrome("ab_a"))
+    print(sol.isPalindrome("A man, a plan, a canal: Panama"))
