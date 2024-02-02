@@ -60,3 +60,8 @@
     - new_str[::] == new_str[:: -1] compare to flat and reverse of the list
     -
     - filter(str.isalnum, 'any string')
+
+- 011.Two Sum II - Input Array Is Sorted
+    - if you want use two pointer you can use for index :   left, right = 0, len(numbers) - 1
+    - 
+    - 
