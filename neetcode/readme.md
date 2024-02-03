@@ -65,3 +65,16 @@
     - if you want use two pointer you can use for index :   left, right = 0, len(numbers) - 1
     - 
     - 
+
+- 012.3Sum
+    - if you have to chose tree index you should constant one option
+    - 
+    - and then remaining options bring us to the question of two pointers.
+    - 
+    - enumerate is very strong method.
+    - 
+        - l += 1
+        - while nums[l] == nums[l - 1] and l < r:
+        -   l += 1
+    - 
+    - If the current number is the same as the previous number, the code moves to the next number.
