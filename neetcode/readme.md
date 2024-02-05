@@ -78,3 +78,8 @@
         -   l += 1
     - 
     - If the current number is the same as the previous number, the code moves to the next number.
+
+- 013.Container With Most Water
+    - Two pointers keep being the same, define them first and on condition
+ increase/ decrease them.
+    -
