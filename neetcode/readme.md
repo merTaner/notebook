@@ -82,4 +82,11 @@
 - 013.Container With Most Water
     - Two pointers keep being the same, define them first and on condition
  increase/ decrease them.
-    -
+    - 
+    - 
+
+- 014.Trapping Rain Water
+    - solution of the question was classic two pointer but hard to understand
+    - 
+    - 
+    
