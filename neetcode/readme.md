@@ -1,6 +1,5 @@
 ## Arrays & Hashing
 
-
 - 001.Contains Duplicate
     - used Counter() method
     -
@@ -89,8 +88,10 @@
     - solution of the question was classic two pointer but hard to understand
     - 
     - 
-    
+
+## Stack 
+
 - 015.Valid Parentheses
-    - stack: LIFO
+    - we're using to stack for control to parentesis
     - 
-    - 
+    - if stack is empty we're finished to method
