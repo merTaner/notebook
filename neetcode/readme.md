@@ -95,3 +95,8 @@
     - we're using to stack for control to parentesis
     - 
     - if stack is empty we're finished to method
+
+- 016.Min Stack
+    - for O(1) time complex, use another stack
+    - 
+    - beacuse cost of stakcs O(1)

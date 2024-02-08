@@ -43,6 +43,9 @@ Constraints:
 
 Takeaway:
 
+It seems more profitable to check the order when adding
+minStack is necessary beacuse we want O(1) time complex
+
 
 """
 
@@ -50,26 +53,36 @@ class MinStack:
 
     def __init__(self):
         """Create empty stack"""
+
         self._stack = []
+        self.min_stack = []
 
     def push(self, val: int) -> None:
         """Add element to the top of the stack"""
-        self._stack.append(val)
 
+        self._stack.append(val)
+        val = min(val, self.min_stack[-1] if self.min_stack else val)
+        self.min_stack.append(val)
+
+ 
     def pop(self) -> None:
         """Remove and return the element from the top of the stack"""
-        if len(self._stack) == 0:
-            raise 'Stack is empty'
+
         self._stack.pop()
+        self.min_stack.pop()
+        
 
     def top(self) -> int:
         """Return(but do not remove) top items of the stack."""
-        if len(self._stack) == 0:
-            raise 'Stack is empty'
+
         return self._stack[-1]
 
     def getMin(self) -> int:
-        pass
+        """Return to min value of the stack"""
+        
+        return self.min_stack[-1]
+
+
 
 
     
@@ -77,8 +90,9 @@ if __name__ == '__main__':
     obj = MinStack()
     print(obj.push(-2))
     print(obj.push(0))
-    print(obj.push(3))
+    print(obj.push(-3))
     print(obj.getMin())
     print(obj.pop())
     print(obj.top())
     print(obj.getMin())
+    
