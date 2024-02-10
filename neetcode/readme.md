@@ -100,3 +100,8 @@
     - for O(1) time complex, use another stack
     - 
     - beacuse cost of stakcs O(1)
+
+- 017.Evaluate Reverse Polish Notation
+    -  think little bit determinant
+    - 
+    - classic stack methods : pop(), append()
