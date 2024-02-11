@@ -105,3 +105,10 @@
     -  think little bit determinant
     - 
     - classic stack methods : pop(), append()
+
+- 018.Generate Parentheses
+    - it would be open < n 
+    - 
+    - would be close < open
+    - 
+    - it valid if open == close == n
