@@ -112,3 +112,8 @@
     - would be close < open
     - 
     - it valid if open == close == n
+
+- 019.Daily Temperatures
+    - 
+    - 
+    - 

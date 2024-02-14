@@ -39,8 +39,6 @@ if day < next_day : res[day] += 1
 and pop to day from stack
 else so day > next_day : top to day from stack and res[day] += 1 
 
-but we need to reverse of stack because it work only this time 
-
 
 """
 
@@ -49,28 +47,14 @@ class Solution:
         res = [0] * len(temperatures)
         stack = []
 
-        for idx, temp in enumerate(temperatures): 
-            while stack and stack[-1] < temp:
-                res[idx - 1] += 1
-                stack.pop()
-            stack.append(temp)
+        #temperatures = [73,74,75,71,69,72,76,73]
+        for index, elem in enumerate(temperatures):
+            while stack and elem > stack[-1][0]:
+                stack_temp , stack_index = stack.pop()
+                res[stack_index] = (index - stack_index)
+            stack.append([elem, index])
 
-
-                
-            
-            
-
-
-        
-
-            
-
-        
-
-
-
-
-
+        return res
 
 
 
