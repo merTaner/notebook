@@ -58,6 +58,7 @@ Constraints:
 """
 
 class Solution:
+    # neetcode solution
     def carFleet(self, target: int, position: list[int], speed: list[int]) -> int:
         pair = [[p, s] for p, s in zip(position, speed)]
 
