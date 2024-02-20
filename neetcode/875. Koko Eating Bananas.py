@@ -44,19 +44,42 @@ start value formula : sum of list items // hours
 
 
 """
+import math
 
 class Solution:
     def minEatingSpeed(self, piles: list[int], h: int) -> int:
-        # we use l < r  in binary search
-        # use round for numbers
+        # we should use l < r  in binary search
+        # use math.ceil() because it's necessary for flow numbers
         #
+        # [3,6,7,11], h = 8
+        #  l          r
+        # l, r = 1, max(piles)
+        # k size of max(piles)
+        # k = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        #      l             m                r
+        # k = 6, 1h, 2h, 3h, 4h, 5h 
+        #        3/6=1 6/6=1 6/7=2 6/11=2 = 6 < h this is true solution
+        # but solution would be good more 
+        # k = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        #      l     m     r
+        #
+        # continue like this
 
-        l, r = 0, max(piles) 
-        while l < r:
-            mid = l + ((r - l) // 2)
+        l, r = 1, max(piles)
+        res = r
+        while l <= r:
+            k = (l + r) // 2
+            hours = 0
+            for p in piles:
+                hours += math.ceil(p / k)
+
+            if hours <= h:
+                res = min(res, k)
+                r = k - 1
+            else:
+                l = k + 1
             
-
-
+        return res
 
 
 
