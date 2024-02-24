@@ -55,7 +55,23 @@ class TimeMap:
         self.map[key].append([value, timestamp])
 
     def get(self, key: str, timestamp: int) -> str:
-        pass
+        result = ""
+
+        values = self.map.get(key, [])
+
+        #binary search
+        l, r = 0 , len(values) - 1
+        while l <= r:
+            m = l + ((r - l) // 2)
+            if values[m][1] <= timestamp:
+                # closest we have seen so far
+                result = values[m][0]
+                # search to the left of the sequence
+                l = m + 1
+            else:
+                r = m - 1
+
+        return result
 
 
 
