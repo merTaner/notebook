@@ -34,26 +34,39 @@ Constraints:
 """
 
 class Solution:
+    def findMedianSortedArrays_(self, nums1: list[int], nums2: list[int]) -> float:
+        # if lenght to sum of those arrays mod %2 == 0 then make stuff
+        # else make differente stuff
+        
+        # Merge the two sorted arrays into one sorted array
+        merged = sorted(nums1 + nums2)
+        n = len(merged)
+        
+        # Check if the merged array has an odd or even length
+        if n % 2 == 1:
+            # If it's odd, return the middle element
+            return float(merged[n // 2])
+        else:
+            # If it's even, return the average of the two middle elements
+            mid1 = n // 2
+            mid2 = mid1 - 1
+            return (merged[mid1] + merged[mid2]) / 2.0
+        
+
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        # not true but sametimes working 
-        nums = nums1 + nums2
-        l, r = 0, len(nums) - 1
-        while l < r:
-            #m = (l + r) // 2
-            if nums[l] <= nums[r]:
-                l += 1
-            nums[l], nums[r]= nums[r], nums[l]
-        
-        return sum(nums) / len(nums)
-        
+        pass
 
 
 
 
 
+
+
+    
 if __name__ == '__main__':
     sol = Solution()
     print(sol.findMedianSortedArrays([1,3], [2]))
     print(sol.findMedianSortedArrays([1,2], [3,4]))
     print(sol.findMedianSortedArrays([0,0], [0,0]))
     print(sol.findMedianSortedArrays([1,3], [2,7]))
+    print(sol.findMedianSortedArrays([0,0,0,0,0], [-1,0,0,0,0,0,1]))
