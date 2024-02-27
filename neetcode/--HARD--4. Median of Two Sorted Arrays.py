@@ -54,12 +54,53 @@ class Solution:
         
 
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        pass
+        # Question is want to O(log(n+m)) you should use binary search 
+        
+        A, B = nums1, nums2
 
+        total_elements = len(nums1) + len(nums2)
+        half = total_elements // 2
 
+        # if B is smaller, swap them
+        if len(B) < len(A):
+            A, B = B, A
 
+        # we are interested in single Binary Search in smaller sequence
+        l, r  = 0 , len(A) - 1
 
+        while True:
 
+            # pointer for A
+            i = l + ((r - l) // 2) # A
+            
+            # pointer for B
+            # the remainder from the half number for the longer sequence
+            # -2 because -1 from both indexes, arrays start from 0
+            j = half - i - 2
+
+            # any of i and j can be out of bounds, we need to cover edge cases
+            # for exmaple when i < 0
+
+            a_left = A[i] if i >= 0 else float("-infinity")
+            a_right = A[i + 1] if (i+1) < len(A) else float("infinity")
+
+            b_left = B[j] if j >= 0 else float("-infinity")
+            b_right = B[j + 1] if (j+1) < len(B) else float("infinity")
+
+            # correct partition:
+            if a_left <= b_right and b_left <= a_right:
+                # odd
+                if total_elements % 2: # 1 is True :)
+                    return min(a_right, b_right) / 1
+                
+                # even
+                return (max(a_left, b_left) + min(a_right, b_right)) / 2
+
+            elif a_left > b_right:
+                # we have too many elements form a left
+                r = i - 1
+            else:
+                l = i + 1
 
 
     
