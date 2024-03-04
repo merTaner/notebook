@@ -39,15 +39,17 @@ Takeaway:
 """
 
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    # not bad solution but it's work same test cases
+    def lengthOfLongestSubstring_(self, s: str) -> int:
         
         memorize_stack = [] 
         max_lenght = 0
         for c in s:
 
             if c in memorize_stack: 
-                max_lenght = len(memorize_stack)
+                max_lenght = max(max_lenght, len(memorize_stack))
                 memorize_stack.clear()
+                memorize_stack.append(c)
 
             if memorize_stack:
 
@@ -60,11 +62,25 @@ class Solution:
 
         return max_lenght
 
+    # neet solution
+    def lengthOfLongestSubstring(self, s: str) -> int:       
+        # use set for uniq value
+        char_set = set()
+        l = 0
+        res = 0
 
-            
+        for r in range(len(s)):
+            while s[r] in char_set:
+                char_set.remove(s[l])
+                l += 1
+            char_set.add(s[r])
+            res = max(res, r - l + 1)
 
+        return res
 
-
+    # basic solution
+    def lengthOfLongestSubstring__(self, s: str) -> int:
+        return len(set(s))
 
 
 
@@ -73,3 +89,5 @@ if __name__ == '__main__':
     print(sol.lengthOfLongestSubstring(s = "abcabcbb"))
     print(sol.lengthOfLongestSubstring(s = "bbbbb"))
     print(sol.lengthOfLongestSubstring(s = "pwwkew"))
+    print(sol.lengthOfLongestSubstring(s = " "))
+    print(sol.lengthOfLongestSubstring(s = ""))
