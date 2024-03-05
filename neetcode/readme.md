@@ -117,3 +117,36 @@
     - 
     - 
     - 
+
+- 020.Car Fleet
+    - 
+    - 
+    - 
+
+- 021.Largest Rectangle in Histogram
+    - 
+    - 
+    - 
+
+## Binary Search
+
+- 022.Binary Search
+    - 
+    - 
+    - 
+
+- 023.Search a 2D Matrix
+
+
+- 024.Koko Eating Bananas 
+
+- 025.Find Minimum In Rotated Sorted Array 
+- 026.Search In Rotated Sorted Array
+- 027.Time Based Key Value Store 
+- 028.Median of Two Sorted Arrays 
+
+## Sliding Window
+
+- 029.Best Time to Buy And Sell Stock
+- 030.Longest Substring Without Repeating Characters 
+- 031.Longest Repeating Character Replacement  
