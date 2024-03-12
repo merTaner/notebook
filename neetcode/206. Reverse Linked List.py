@@ -42,52 +42,42 @@ class ListNode:
     # class is just includes defined variables.
     __slots__ = "val", "next"
 
+    # Constructor to initialize the node object
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 class Solution:
 
-    def reverseList_(self, head):
-         # the list looks like 1 -> 2 -> 3
-        # to make it look like 1 <- 2 <- 3
-        prev = None
-        current = head
-        
-        # while current is not None
-        while current:
-
-            next_node = current.next  # Save the next node
-            current.next = prev       # Reverse the pointer
-            
-            # move on to the next node
-
-            prev = current            # Move prev to the current node
-            current = next_node       # Move current to the saved next node
-        
-        return prev
-        
-
     def reverseList(self, head):
-        # Base case for recursion: If the current head or the next node is None, 
-        # it means we have reached the end of the list or the list is empty.
-        if not head or not head.next:
-            # Just return the current head (which will become 
-            # the new tail in the reversed list).
-            return head
+        
+        prev = None
+        # it store with a tuple like (val, next)
+        # we access current.next on head
+        current = head  
+        while (current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        head = prev
 
-        # Recursively call the function with the next node in the list.
-        # This will reverse the sublist starting from the next node.
-        new_head = self.reverseList(head.next)
-
-        # Now, we need to reverse the pointers for the current node and the next node.
-        # Make the next node's "next" pointer point back to the current node.
-        head.next.next = head
-        # Set the current node's "next" pointer to None to break the original link.
+        return head
+                
+    def recursive_reverseList(self, head):
+        
+        if not head:
+            return None
+        
+        new_head = head
+        if head.next:
+            new_head = self.recursive_reverseList(head.next)
+            head.next.next = head
         head.next = None
 
-        # Finally, return the new_head, which is the head of the reversed list.
         return new_head
+        
+        
 
 
 if __name__ == '__main__':
